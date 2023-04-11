@@ -16,13 +16,6 @@ Tag.init(
     tag_name: {
       type: DataTypes.STRING,
     },
-    tag_category: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'tagcategory',
-        foreignKey: 'id',
-      },
-    },
   },
   {
     sequelize,
