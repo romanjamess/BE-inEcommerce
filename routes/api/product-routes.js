@@ -1,22 +1,50 @@
 const router = require('express').Router();
 const { Product, Category, Tag, ProductTag } = require('../../models');
+const { sync } = require('../../models/Product');
 
 // The `/api/products` endpoint
 
 // get all products
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
+  try {
+    const travellerData = await Product.findAll();
+    res.status(200).json(travellerData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
   // find all products
   // be sure to include its associated Category and Tag data
 });
 
 // get one product
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
+  try {
+    const productData = await Product.findByPk(req.params.id, {
+      // JOIN with locations, using the Trip through table
+      include: [{ model: ProductTag, through: Tag, as: 'tags' }]
+    });
+
+    if (!productData) {
+      res.status(404).json({ message: 'No tag found with this id!' });
+      return;
+    }
+
+    res.status(200).json(productData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
 });
 
 // create new product
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
+  try {
+    const productData = await Product.create(req.body);
+    res.status(200).json(productData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
   /* req.body should look like this...
     {
       product_name: "Basketball",
@@ -53,6 +81,7 @@ router.put('/:id', (req, res) => {
   Product.update(req.body, {
     where: {
       id: req.params.id,
+      // include: [Category, Tag]
     },
   })
     .then((product) => {
@@ -89,7 +118,23 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
+  try {
+    const productData = await Product.destroy({
+      where: {
+        id: req.params.id
+      }
+    });
+
+    if (!productData) {
+      res.status(404).json({ message: 'No traveller found with this id!' });
+      return;
+    }
+
+    res.status(200).json(productData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
   // delete one product by its `id` value
 });
 
