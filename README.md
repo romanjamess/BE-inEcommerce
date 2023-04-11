@@ -26,6 +26,7 @@
   <li>create a .env file to store DB variables such as "DB NAME, DB_USER, DB_PASSWORD"</li>
   <li>source your DB using command line in mysql; source db/schema.sql </li>
   <li>seed your DB, to seed your DB move your .env file you created in step 2 into the seeds folder and run "node index.js" </li>
+  <li>move you .env file back in working directory</li>
   <li>run npm i to install node mudules </li>
   <li> Now run npm run start in your integrated terminal</li>
   <li>Now your server is listening! </li>
