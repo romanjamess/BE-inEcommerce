@@ -35,9 +35,13 @@
   ## MockUP
   
 https://drive.google.com/file/d/10HmDgQvMukQgLTcDm5-92-p6Ct5iMLQo/view
-![Insomnia_a6z41TkBpY](https://user-images.githubusercontent.com/118143164/232135674-9037cba6-aff6-4e36-886a-8f3619281d36.png)
+
 
    
+
+https://user-images.githubusercontent.com/118143164/232136376-778ec6af-4eae-40ba-ac6c-d32a8a3d2b3c.mp4
+
+
   ## license
 
         this is project is licensed under MIT
