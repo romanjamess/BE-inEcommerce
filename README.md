@@ -34,9 +34,6 @@
   
   ## MockUP
   
-https://drive.google.com/file/d/10HmDgQvMukQgLTcDm5-92-p6Ct5iMLQo/view
-
-
    [Untitled_ Apr 11, 2023 6_53 PM.webm](https://user-images.githubusercontent.com/118143164/232136721-63d5fb59-c600-413f-9c11-ca403bf67da9.webm)
 
 
